@@ -4,6 +4,10 @@
 
 import component from './main.component';
 
-export default angular.module('main', [])
+import microApp1 from 'micro-app-1';
+
+import theBrain from 'the-brain';
+
+export default angular.module('main', [microApp1, theBrain])
 .component('mainContainer', component)
 .name;

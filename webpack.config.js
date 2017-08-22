@@ -7,17 +7,18 @@ const HTMLWebpackPlugin = require ('html-webpack-plugin');
 module.exports = {
     entry: {
         main: './src/index.js',
-        vendors: ['angular']
+        vendors: ['angular', 'micro-app-1']
     },
     output: {
         filename: '[name].js',
         path: path.resolve (__dirname, 'dist')
     },
     module: {
+        noParse: /microApp1/,
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader'
                 }
@@ -30,13 +31,19 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        alias: {
+            'angular': 'angular',
+            'window.angular':'angular'
+        }
+    },
     plugins: [
         new HTMLWebpackPlugin ({
-            title: 'Micro frontend',
             template: 'src/index.html'
         }),
         new webpack.optimize.CommonsChunkPlugin ({
-            name: 'common' // Specify the common bundle's name.
+            name: "vendors",
+            minChunks: Infinity,
         })
     ],
 };

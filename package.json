@@ -30,6 +30,8 @@
     "webpack": "^3.4.1"
   },
   "dependencies": {
-    "angular": "^1.6.5"
+    "angular": "^1.6.5",
+    "micro-app-1": "^1.0.0",
+    "the-brain": "^1.1.3"
   }
 }
