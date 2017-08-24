@@ -2,7 +2,7 @@
  * Created by htomaka on 04/08/17
 **/
 
-import mainContainer from './main';
+import appShell from 'app-shell';
 
-export default angular.module('app', [mainContainer])
+export default angular.module('frontEndMicroservices', [appShell])
 .name;
